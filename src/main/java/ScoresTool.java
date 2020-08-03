@@ -48,7 +48,10 @@ public class ScoresTool {
 
         // 补中得分，除了求当前和，除第十次，还要加下一次的首次得分
         for (Integer index : spareIndex) {
-            sumTotal += scores[index][0] + scores[index][1] + scores[++index][0];
+            if(index < 10) {
+                // 排除额外项
+                sumTotal += scores[index][0] + scores[index][1] + scores[++index][0];
+            }
         }
 
         // 全中得分，除了求当前和，除第十次，还要加下一次两次的和
