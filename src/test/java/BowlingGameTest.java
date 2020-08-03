@@ -17,11 +17,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {2, 2}, {3, 2}, {3, 3}, {2, 5}, {3, 5}, {6, 3}, {2, 1}, {2, 2}, {3, 2}};
         Integer expected = 54;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -30,11 +26,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {2, 2}, {3, 7}, {3, 3}, {2, 5}, {3, 5}, {6, 4}, {2, 1}, {2, 2}, {3, 2}};
         Integer expected = 65;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -43,11 +35,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {2, 2}, {3, 7}, {4, 6}, {5, 5}, {3, 5}, {6, 4}, {2, 1}, {2, 2}, {3, 2}};
         Integer expected = 81;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -56,11 +44,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {3, 5}, {3, 3}, {10, 0}, {3, 5}, {6, 2}, {2, 1}, {2, 2}, {3, 2}};
         Integer expected = 81;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -70,11 +54,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {10, 0}, {3, 5}, {10, 0}, {10, 0}, {6, 2}, {2, 1}, {2, 2}, {3, 2}};
         Integer expected = 116;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -84,11 +64,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {3, 2}};
         Integer expected = 88;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -99,11 +75,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {10, 0}, {4, 5}};
         Integer expected = 102;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -113,11 +85,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {4, 6}, {1, 5}};
         Integer expected = 94;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -127,11 +95,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {10, 0}, {10, 0}};
         Integer expected = 103;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -141,11 +105,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {10, 0}, {4, 6}};
         Integer expected = 103;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -155,11 +115,7 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {4, 6}, {10, 0}};
         Integer expected = 103;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
@@ -169,19 +125,31 @@ public class BowlingGameTest {
         Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {4, 6}, {3, 7}};
         Integer expected = 96;
 
-        // When
-        Integer totalScores = scoresTool.calculates(scores);
-
-        // Then
-        assertEquals(expected, totalScores);
+        isEqualOrNot(scores, expected);
     }
 
     @Test
     void test_all_strike() {
         // Given
-        // 此处最后的3和7为新加的一轮(补加两个球)
+        // 此处最后的10和0为新加的一轮(补加两个球)
         Integer[][] scores = {{10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}, {10, 0}};
         Integer expected = 290;
+
+        isEqualOrNot(scores, expected);
+    }
+
+    @Test
+    void test_all_spare() {
+        // Given
+        // 10 * 10 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 4 + 7
+        // 此处最后的7和3为新加的一轮(补加两个球)
+        Integer[][] scores = {{1, 9}, {2, 8}, {3, 7}, {4, 6}, {5, 5}, {6, 4}, {7, 3}, {8, 2}, {9, 1}, {4, 6}, {7, 3}};
+        Integer expected = 155;
+
+        isEqualOrNot(scores, expected);
+    }
+
+    private void isEqualOrNot(Integer[][] scores, Integer expected) {
 
         // When
         Integer totalScores = scoresTool.calculates(scores);
