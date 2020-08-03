@@ -92,7 +92,7 @@ public class BowlingGameTest {
     }
 
     @Test
-    void test_strike_in_the_10_round() {
+    void test_strike_in_the_10_round_with_addition_normal() {
         // Given
         // 3+10+10+10+3+8+10+5+5+10+2+3+4+10+9
         // 此处最后的4和5为新加的一轮(补加两个球)
@@ -107,7 +107,7 @@ public class BowlingGameTest {
     }
 
     @Test
-    void test_spare_in_the_10_round() {
+    void test_spare_in_the_10_round_with_addition_normal() {
         // Given
         // 3+10+10+10+3+8+10+5+5+10+2+3+4+10+4
         // 此处最后的4和5为新加的一轮(补加两个球)
@@ -143,6 +143,36 @@ public class BowlingGameTest {
         // 此处最后的4和5为新加的一轮(补加两个球)
         Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {10, 0}, {4, 6}};
         Integer expected = 103;
+
+        // When
+        Integer totalScores = scoresTool.calculates(scores);
+
+        // Then
+        assertEquals(expected, totalScores);
+    }
+
+    @Test
+    void test_spare_in_the_10_round_with_addition_strike() {
+        // Given
+        // 3+10+10+10+3+8+10+5+5+10+2+3+4+10+10+0
+        // 此处最后的4和5为新加的一轮(补加两个球)
+        Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {4, 6}, {10, 0}};
+        Integer expected = 103;
+
+        // When
+        Integer totalScores = scoresTool.calculates(scores);
+
+        // Then
+        assertEquals(expected, totalScores);
+    }
+
+    @Test
+    void test_spare_in_the_10_round_with_addition_spare() {
+        // Given
+        // 3+10+10+10+3+8+10+5+5+10+2+3+4+10+10+0
+        // 此处最后的4和5为新加的一轮(补加两个球)
+        Integer[][] scores = {{1, 2}, {10, 0}, {4, 6}, {3, 5}, {10, 0}, {3, 2}, {7, 3}, {2, 1}, {2, 2}, {4, 6}, {3, 7}};
+        Integer expected = 96;
 
         // When
         Integer totalScores = scoresTool.calculates(scores);
