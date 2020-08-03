@@ -38,7 +38,12 @@ public class ScoresTool {
 
         // 正常得分的，直接求和即可
         for (Integer index : normalIndex) {
-            sumTotal += scores[index][0] + scores[index][1];
+            if (index < 9) {
+                sumTotal += scores[index][0] + scores[index][1];
+            } else if (index == 9){
+                // 第十次
+                sumTotal += scores[index][0] + scores[index][1];
+            }
         }
 
         // 补中得分，除了求当前和，除第十次，还要加下一次的首次得分
@@ -49,11 +54,18 @@ public class ScoresTool {
         // 全中得分，除了求当前和，除第十次，还要加下一次两次的和
         for (Integer index : strikeIndex) {
             Integer nextIndex = index + 1;
-            // 判断下一次是否依然是全中
-            if(strikeIndex.contains(nextIndex)) {
-                sumTotal += scores[index][0] + scores[index][1]
-                        + scores[nextIndex][0] + scores[++nextIndex][0];
-            } else {
+            // 对于第十次全中特殊处理
+            if (index < 9) {
+                // 判断下一次是否依然是全中
+                if(strikeIndex.contains(nextIndex)) {
+                    sumTotal += scores[index][0] + scores[index][1]
+                            + scores[nextIndex][0] + scores[++nextIndex][0];
+                } else {
+                    sumTotal += scores[index][0] + scores[index][1]
+                            + scores[nextIndex][0] + scores[nextIndex][1];
+                }
+            } else if (index == 9){
+                // 第十次
                 sumTotal += scores[index][0] + scores[index][1]
                         + scores[nextIndex][0] + scores[nextIndex][1];
             }
