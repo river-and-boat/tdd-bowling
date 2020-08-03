@@ -38,6 +38,19 @@ public class BowlingGameTest {
     }
 
     @Test
+    void test_only_spare_in_first_9_rounds_with_continue() {
+        // Given
+        Integer[][] scores = {{1, 2}, {2, 2}, {3, 7}, {4, 6}, {5, 5}, {3, 5}, {6, 4}, {2, 1}, {2, 2}, {3, 2}};
+        Integer excepted = 81;
+
+        // When
+        Integer totalScores = scoresTool.calculates(scores);
+
+        // Then
+        assertEquals(excepted, totalScores);
+    }
+
+    @Test
     void test_only_strike_in_first_9_rounds_with_no_continue() {
         // Given
         Integer[][] scores = {{1, 2}, {10, 0}, {3, 5}, {3, 3}, {10, 0}, {3, 5}, {6, 2}, {2, 1}, {2, 2}, {3, 2}};
